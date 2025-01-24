@@ -1,0 +1,23 @@
+.
+├── LICENSE
+├── README.md
+├── docker-compose.yml
+├── estrutura_projeto.txt
+├── logs
+│   └── app.log
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app
+│   │   ├── config
+│   │   │   └── logger.ts
+│   │   ├── main.ts
+│   │   ├── middlewares
+│   │   │   └── morganMiddleware.ts
+│   │   └── routes
+│   │       ├── main.routes.ts
+│   │       └── users.routes.ts
+│   └── shared
+└── tsconfig.json
+
+8 directories, 13 files

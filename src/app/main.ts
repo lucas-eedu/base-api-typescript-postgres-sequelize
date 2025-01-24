@@ -1,8 +1,11 @@
-require('dotenv').config();
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import Logger from './config/logger';
 import morganMiddleware from './middlewares/morganMiddleware';
 import router from './routes/main.routes';
+import sequelize from './config/database';
 
 const app = express();
 
@@ -11,7 +14,12 @@ app.use(morganMiddleware);
 app.use('/api', router);
 
 app.listen(process.env.APP_PORT, async () => {
-  Logger.info(
-    `API Working => ${process.env.APP_URL}:${process.env.APP_PORT}/api`,
-  );
+  try {
+    await sequelize.sync({ force: false });
+    Logger.info(
+      `API Working => ${process.env.APP_URL}:${process.env.APP_PORT}/api`,
+    );
+  } catch (error) {
+    Logger.error('Unable to connect to the database:', error);
+  }
 });
