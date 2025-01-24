@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "rootDirs": ["./src"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "resolveJsonModule": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "target": "es2021",
+    "outDir": ".build",
+    "lib": ["es2021"],
+    "rootDir": "./",
+    "baseUrl": "./"
+  },
+
+  "include": ["src/app/*.ts"],
+  "exclude": ["node_modules"]
+}
