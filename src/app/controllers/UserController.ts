@@ -15,7 +15,7 @@ class UserController {
       return res
         .status(201)
         .json({ message: 'User created successfully!', user });
-    } catch (error: any) {
+    } catch (error) {
       return next(error);
     }
   }
