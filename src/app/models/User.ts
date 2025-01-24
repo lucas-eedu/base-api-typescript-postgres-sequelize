@@ -1,19 +1,22 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/database';
 
-class User extends Model {
+export class User extends Model {
   public id!: number;
   public name!: string;
   public email!: string;
   public password!: string;
+  public created_at!: Date;
+  public updated_at!: Date;
 }
 
 User.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -28,10 +31,22 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,
-    modelName: 'User',
+    tableName: 'users',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   },
 );
 
