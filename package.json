@@ -1,11 +1,16 @@
 {
-  "name": "api-blog",
+  "name": "base-api-typescript-postgres-sequelize-docker",
   "version": "1.0.0",
   "main": "src/app/main.ts",
   "author": "Lucas Eduardo",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app/main.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/app/main.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "make:migration": "sequelize-cli migration:generate --name",
+    "migrate": "sequelize-cli db:migrate",
+    "migrate:rollback": "sequelize-cli db:migrate:undo"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -22,6 +27,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.17.16",
     "@types/sequelize": "^4.28.20",
@@ -30,8 +36,11 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.4.1",
+    "jest": "^29.7.0",
     "prettier": "^2.8.8",
     "sequelize-cli": "^6.6.2",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.3"
